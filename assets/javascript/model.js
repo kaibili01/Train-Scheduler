@@ -9,6 +9,7 @@
     databaseURL: "https://train-scheduler-ae466.firebaseio.com",
     projectId: "train-scheduler-ae466",
     storageBucket: "train-scheduler-ae466.appspot.com",
+    // storageBucket: "",
     messagingSenderId: "828140683131"
   };
     firebase.initializeApp(config);
@@ -27,9 +28,14 @@
     var trainFrequency;
     var trainTiming;
     var trainPlatform;
+    // var buttonDelete;
+    // var trainKey;
     var currentTime = moment();
-    console.log('CURRENT TIME: ' + moment(currentTime).format('hh:mm:ss A'));
+    // console.log('CURRENT TIME: ' + moment().format('MMMM Do YYYY, h:mm:ss a'));
+    console.log('CURRENT TIME: ' + moment().format());
     
+    
+     
     
     // model object with functions for pulling/pushing new data to the database
     
@@ -51,6 +57,7 @@
                 trainLine: trainLine,
                 trainNumber: trainNumber,
                 trainPlatform: trainPlatform,
+                // buttonDelete: buttonDelete,
                 dateAdded: firebase.database.ServerValue.TIMESTAMP
     
     
@@ -78,7 +85,8 @@
                 trainDeparture = childSnapshot.val().trainDeparture
                 trainFrequency = childSnapshot.val().trainFrequency
                 trainPlatform = childSnapshot.val().trainPlatform
-    
+                // buttonDelete = buttonDelete.val().buttonDelete
+                // trainKey = childSnapshot.key().trainKey
     
                 //console.log(trainNumber, trainLine, trainDestination, trainDeparture, trainFrequency, trainPlatform)
     
@@ -110,7 +118,7 @@
                         trainDeparture = trains[index].trainDeparture
                         trainFrequency = trains[index].trainFrequency
                         trainPlatform = trains[index].trainPlatform
-    
+                        // trainKey = trains[index].trainKey
     
                         //console.log(trainNumber, trainLine, trainDestination, trainDeparture, trainFrequency, trainPlatform)
                         controller.nextArrival();

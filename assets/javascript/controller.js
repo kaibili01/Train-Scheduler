@@ -20,6 +20,8 @@ let controller = {
             trainDeparture = $('#train-departure').val().trim();
             trainFrequency = $('#train-frequency').val().trim();
             trainPlatform = $('#train-platform').val().trim();
+            // trainKey = $('#train-key').val().trim();
+
 
 
             // console log all the entries for testing
@@ -42,7 +44,24 @@ let controller = {
 
 
         });
+
+
+        //Delete the input in any given row
+        // trainKey = $('#train-key').val().trim();
+        // $('body').on("click", ".button-delete", () => {
+        //     event.preventDefault();
+
+            
+
+
+            
+        // }
+
+
     },
+
+        
+           
 
 
     // Time Calculation functions 
@@ -51,8 +70,6 @@ let controller = {
     nextArrival: () => {
        // First Time (pushed back 1 year to make sure it comes before current time)
        var trainDepartureCoverted = moment(trainDeparture, "hh:mm").subtract(1, 'years');
-       // get Current Time
-       var currentTime = moment();
        //difference between the times
        var diffTime = moment().diff(moment(trainDepartureCoverted), "minutes");
        // Time apart (remainder)
@@ -68,8 +85,6 @@ let controller = {
    minutesAway: () => {
        // First Time (pushed back 1 year to make sure it comes before current time)
        var trainDepartureCoverted = moment(trainDeparture, "hh:mm").subtract(1, 'years');
-       //Current Time
-       var currentTime = moment();
        //difference between the times
        var diffTime = moment().diff(moment(trainDepartureCoverted), "minutes");
        // Time apart (remainder)
@@ -77,7 +92,7 @@ let controller = {
        //minutes until Train
        minutesAway = trainFrequency - timeRemainder;
        minutesAway = moment().startOf('day').add(minutesAway, 'minutes').format('HH:mm');
-       return moment(minutesAway).format('HH:mm');
+       return moment().format('HH:mm');
    },
    convertFrequency: () => {
        trainFrequency = moment().startOf('day').add(trainFrequency, 'minutes').format('HH:mm');

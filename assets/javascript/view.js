@@ -38,10 +38,22 @@ var view = {
 				'<td>' + minutesAway + '</td>' +
 				'<td>' + trainFrequency + '</td>' +
 				'<td>' + trainPlatform + '</td>' +
-			'</tr>'
+				// '<td>' + `<button class='delete btn btn-danger' data='${snapshot.key}'>` + '</td>'+
+
+				
+				// '<button class="delete btn btn-danger" data='+ trainKey +'>x</button>'+ 
+				// '<button class="delete btn btn-danger" data='${snapshot.key}'>'
+				// `<button class='delete btn btn-danger' data='${snapshot.key}'>`+
+				
+				
+				'</tr>'
 			);
 	},
 	updateCurrentTime: () => {
-		$('.currentTime').text(moment().format('h:mm:ss A'))
+		// $('.currentTime').text(moment().format('MMMM Do YYYY, h:mm:ss a'));
+		// $('.currentTime').text(moment().format());
+		$('.currentTime').text(moment().format("MMM Do YYYY, h:mm:ss a"));
+		
+		
 	}
 };

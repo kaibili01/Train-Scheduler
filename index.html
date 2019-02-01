@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Train Scheduler</title>
 
 
-	<meta name="viewport" content="width=device-width" initial-scale=1.0">
+	<meta name="viewport" content="width=device-width" initial-scale="1.0">
 
 	<!-- Link to reset CSS to zero out browser defaults -->
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
@@ -13,133 +14,248 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<!-- Link to Bootstrap 4 Beta CSS CDN -->
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	 crossorigin="anonymous">
 
 	<!-- Link to Font Awesome CSS CDN for Glpyhicons -->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+	 crossorigin="anonymous">
+	<a href="https://icons8.com/icon/90543/railway-station"></a>
 </head>
 
 <body>
 
 	<div class="wrapper">
 		<!-- Header area -->
-	    <div class="jumbotron jumbotron-fluid header">
+		<div class="jumbotron jumbotron-fluid header">
 
-	    	<div class="container">
-	    		<h1 class="display-3">
-	    			<i class="fa fa-train" aria-hidden="true"></i>
-	    			<i class="fa fa-clock-o" aria-hidden="true"></i>
-	    			<i class="fa fa-subway" aria-hidden="true"></i>
+			<h1 class="display-3"><strong>Train Scheduler</strong></h1>
+			<h2 class="currentTime"></h2>
+
+			<div class="container">
+				<h1 class="display-3">
+
+					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="200" height="200" viewBox="0 0 224 224" style=" fill:#000000;">
+						<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+						 stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+						 text-anchor="none" style="mix-blend-mode: normal">
+							<path d="M0,224v-224h224v224z" fill="none"></path>
+							<path d="M5.6,112c0,-58.7631 47.6369,-106.4 106.4,-106.4c58.7631,0 106.4,47.6369 106.4,106.4c0,58.7631 -47.6369,106.4 -106.4,106.4c-58.7631,0 -106.4,
+							-47.6369 -106.4,-106.4zM112,213.92c56.28886,0 101.92,-45.63114 101.92,-101.92c0,-56.28886 -45.63114,-101.92 -101.92,-101.92c-56.28886,0 -101.92,45.63114 
+							-101.92,101.92c0,56.28886 45.63114,101.92 101.92,101.92z"
+							 fill="#000000"></path>
+							<g fill="#000000">
+								<g id="surface1">
+									<path d="M93.7664,29.1261c-5.78865,0 
+							-10.6708,4.3771 -11.4996,9.9456h-3.4188c-12.691,0 -23.2064,9.93265 -23.2064,22.274v94.6904c0,8.55995 5.08935,15.9544 12.432,19.684l-15.9544,13.2608c-1.4245,1.17845 
+							-1.64465,3.2893 -0.4662,4.7138c1.17845,1.4245 3.2893,1.64465 4.7138,0.4662l19.166,-16.058c1.07485,0.14245 2.2015,0.2072 3.3152,0.2072h66.304c1.1137,0 2.24035,-0.06475 3.3152,
+							-0.2072l19.166,16.058c1.4245,1.17845 3.53535,0.9583 4.7138,-0.4662c1.17845,-1.4245 0.9583,-3.53535 -0.4662,-4.7138l-15.9544,-13.2608c7.34265,-3.7296 12.432,-11.12405 12.432,
+							-19.684v-94.6904c0,-12.34135 -10.5154,-22.274 -23.2064,-22.274h-3.4188c-0.8288,-5.5685 -5.71095,-9.9456 -11.4996,-9.9456c-5.78865,0 -10.6708,4.3771 -11.4996,9.9456h-13.468c-0.8288,
+							-5.5685 -5.71095,-9.9456 -11.4996,-9.9456zM93.7664,35.7565c2.78425,0 4.9728,2.18855 4.9728,4.9728c0,2.78425 -2.18855,4.9728 -4.9728,4.9728c-2.78425,0 -4.9728,-2.18855 -4.9728,
+							-4.9728c0,-2.78425 2.18855,-4.9728 4.9728,-4.9728zM130.2336,35.7565c2.78425,0 4.9728,2.18855 4.9728,4.9728c0,2.78425 -2.18855,4.9728 -4.9728,4.9728c-2.36985,0 -4.33825,-1.54105 
+							-4.8692,-3.7296c0,-0.06475 0,-0.14245 0,-0.2072c0,-0.0259 0,-0.06475 0,-0.1036c-0.0518,-0.29785 -0.1036,-0.6216 -0.1036,-0.9324c0,-2.78425 2.18855,-4.9728 4.9728,
+							-4.9728zM78.848,45.7021h4.5584c1.8907,3.8591 5.8016,6.6304 10.36,6.6304c4.5584,0 8.4693,-2.7713 10.36,-6.6304h15.7472c1.8907,3.8591 5.8016,6.6304 10.36,6.6304c4.5584,0 8.4693,
+							-2.7713 10.36,-6.6304h4.5584c9.2722,0 16.576,7.0707 16.576,15.6436v94.6904c0,8.5729 -7.3038,15.6436 -16.576,15.6436h-66.304c-9.2722,0 -16.576,-7.0707 -16.576,-15.6436v-94.6904c0,
+							-8.5729 7.3038,-15.6436 16.576,-15.6436zM92.1088,58.9629c-3.626,0 -6.6304,3.0044 -6.6304,6.6304v6.6304h-6.6304c-5.3095,0 -9.9456,4.1181 -9.9456,9.4276v27.5576c0,5.3095 4.6361,
+							9.4276 9.9456,9.4276h66.304c5.3095,0 9.9456,-4.1181 9.9456,-9.4276v-27.5576c0,-5.3095 -4.6361,-9.4276 -9.9456,-9.4276h-6.6304v-6.6304c0,-3.626 -3.0044,-6.6304 -6.6304,-6.6304zM92.1088,
+							65.5933h39.7824v6.6304h-39.7824zM78.848,78.8541h66.304c2.0202,0 3.3152,1.3986 3.3152,2.7972v27.5576c0,1.3986 -1.295,2.7972 -3.3152,2.7972h-66.304c-2.0202,0 -3.3152,
+							-1.3986 -3.3152,-2.7972v-27.5576c0,-1.3986 1.295,-2.7972 3.3152,-2.7972zM82.1632,135.2125c-7.29085,0 -13.2608,5.96995 -13.2608,13.2608c0,7.29085 5.96995,13.2608 13.2608,13.2608c7.29085,
+							0 13.2608,-5.96995 13.2608,-13.2608c0,-7.29085 -5.96995,-13.2608 -13.2608,-13.2608zM141.8368,135.2125c-7.29085,0 -13.2608,5.96995 -13.2608,13.2608c0,7.29085 5.96995,13.2608 13.2608,
+							13.2608c7.29085,0 13.2608,-5.96995 13.2608,-13.2608c0,-7.29085 -5.96995,-13.2608 -13.2608,-13.2608zM82.1632,141.8429c3.7037,0 6.6304,2.9267 6.6304,6.6304c0,3.7037 -2.9267,6.6304 -6.6304,
+							6.6304c-3.7037,0 -6.6304,-2.9267 -6.6304,-6.6304c0,-3.7037 2.9267,-6.6304 6.6304,-6.6304zM141.8368,141.8429c3.7037,0 6.6304,2.9267 6.6304,6.6304c0,3.7037 -2.9267,6.6304 -6.6304,6.6304c-3.7037,0 -6.6304,
+							-2.9267 -6.6304,-6.6304c0,-3.7037 2.9267,-6.6304 6.6304,-6.6304z"></path></g></g><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,
+							0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,
+							-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,
+							-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,
+							-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"fill="none"></path></g>
+</svg>
+
+
+
+					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="200" height="200" viewBox="0 0 224 224" style=" fill:#FFFFFF;">
+						<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+						 stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+						 text-anchor="none" style="mix-blend-mode: normal">
+							<path d="M0,224v-224h224v224z" fill="none"></path>
+							<path d="M5.6,112c0,-58.7631 47.6369,-106.4 106.4,-106.4c58.7631,0 106.4,47.6369 106.4,106.4c0,58.7631 -47.6369,106.4 -106.4,106.4c-58.7631,0
+							 -106.4,-47.6369 -106.4,-106.4zM112,213.92c56.28886,0 101.92,-45.63114 101.92,-101.92c0,-56.28886 -45.63114,-101.92 -101.92,-101.92c-56.28886,0 -101.92,45.63114 
+							 -101.92,101.92c0,56.28886 45.63114,101.92 101.92,101.92z"
+							 fill="#FFFFFF"></path>
+							<g fill="#FFFFFF"><path d="M112,27.4626l-64.34531,21.44844l4.37062,13.11188l59.97469,-19.99156l59.97469,19.99156l4.37062,-13.11188zM91.28,62.37365c-7.59733,0 
+								-13.81333,6.216 -13.81333,13.81333v0.9038c-11.87947,3.03893 -20.72,13.87646 -20.72,26.72286v48.34667c0,11.396 9.324,20.72 20.72,20.72v13.81333h13.81333v-13.81333h41.44v13.81333h13.81333v
+								-13.81333c11.396,0 20.72,-9.324 20.72,-20.72v-48.34667c0,-12.8464 -8.84053,-23.68393 -20.72,-26.72286v-0.9038c0,-7.59733 -6.216,-13.81333 -13.81333,
+								-13.81333zM77.46667,96.90698h69.06667c3.81248,0 6.90667,3.09419 6.90667,6.90667v6.90667v13.81333h-82.88v-6.90667v-13.81333c0,-3.81248 3.09419,-6.90667 6.90667,
+								-6.90667zM112,138.34698c3.79867,0 6.90667,3.108 6.90667,6.90667c0,3.79867 -3.108,6.90667 -6.90667,6.90667c-3.79867,0 -6.90667,-3.108 -6.90667,-6.90667c0,-3.79867 3.108,-6.90667 6.90667,-6.90667z"></path>
+							</g>
+							<path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path>
+						</g>
+					</svg>
+
+
+
+					<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="200" height="200" viewBox="0 0 224 224" style=" fill:#000000;">
+						<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+						 stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+						 text-anchor="none" style="mix-blend-mode: normal">
+							<path d="M0,224v-224h224v224z" fill="none"></path>
+							<path d="M5.6,112c0,-58.7631 47.6369,-106.4 106.4,-106.4c58.7631,0 106.4,47.6369 106.4,106.4c0,58.7631 -47.6369,106.4 -106.4,106.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4zM112,213.92c56.28886,
+							0 101.92,-45.63114 101.92,-101.92c0,-56.28886 -45.63114,-101.92 -101.92,-101.92c-56.28886,0 -101.92,45.63114 -101.92,101.92c0,56.28886 45.63114,101.92 101.92,101.92z"
+							 fill="#000000"></path> <g fill="#000000"><path d="M70.56,49.84v13.81333h-13.81333v13.81333h13.81333v13.81333h-13.81333v13.81333h13.81333v13.81333h-13.81333v13.81333h13.81333v13.81333h
+								-13.81333v13.81333h13.81333v13.81333h13.81333v-124.32zM139.62667,49.84v13.81333h-41.44v13.81333h41.44v13.81333h-41.44v13.81333h41.44v13.81333h-41.44v13.81333h41.44v13.81333h-41.44v13.81333h41.44v13.81333h13.81333v
+								-13.81333h13.81333v-13.81333h-13.81333v-13.81333h13.81333v-13.81333h-13.81333v-13.81333h13.81333v-13.81333h-13.81333v-13.81333h13.81333v-13.81333h-13.81333v-13.81333z"></path>
+							</g>	<path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path><path d="M112,218.4c-58.7631,0 -106.4,-47.6369 -106.4,-106.4v0c0,-58.7631 47.6369,-106.4 106.4,-106.4v0c58.7631,0 106.4,47.6369 106.4,106.4v0c0,58.7631 -47.6369,106.4 -106.4,106.4z"
+							 fill="none"></path><path d="M112,213.92c-56.28886,0 -101.92,-45.63114 -101.92,-101.92v0c0,-56.28886 45.63114,-101.92 101.92,-101.92h0c56.28886,0 101.92,45.63114 101.92,101.92v0c0,56.28886 -45.63114,101.92 -101.92,101.92z"
+							 fill="none"></path>
+						</g>
+					</svg>
+
+
 				</h1>
-			    <h1 class="display-3"><strong>Train Scheduler</strong></h1>
-			    <p class="lead">Getting you there on time</p>
-			    <h2 class="currentTime"></h2>
+
+				<p class="lead">"Well the pistons keep on turning,
+					and the wheels go round and round.
+					The steel rails are cold and hard
+					for the miles that they go down..."</p>
+
 			</div>
 
-	    </div>
+		</div>
 
-	    <!-- Main Content Area -->
-	    <div class="container">
+		<!-- Main Content Area -->
+		<div class="container">
 			<div class="card text-white bg-dark mb-3">
-			  	<div class="card-header schedule-header">
-				    Train Schedule
+				<div class="card-header schedule-header">
+					Train Schedule
 				</div>
 				<div class="card-body">
 					<table class="table table-striped table-dark table-responsive-sm table-responsive-md train-schedule-table">
-					  	<thead class="train-schedule-head">
-						    <tr>
-						       	<th scope="col">Train #</th>
-						       	<th scope="col">Line</th>
-							    <th scope="col">Destination</th>
-							    <th scope="col">Next Arrival</th>
-							    <th scope="col">Time to Arrival</th>
-							    <th scope="col">Frequency</th>
-							    <th scope="col">Platform #</th>
-						    </tr>
-					   	</thead>
-					  	   		<tbody id="train-schedule-body"></tbody>
+						<thead class="train-schedule-head">
+							<tr>
+								<th scope="col">Train #</th>
+								<th scope="col">Line</th>
+								<th scope="col">Destination</th>
+								<th scope="col">Next Arrival</th>
+								<th scope="col">Time to Arrival</th>
+								<th scope="col">Frequency</th>
+								<th scope="col">Platform #</th>
+								<th scope="col">Closing Button</th>
+								
+							</tr>
+						</thead>
+						<tbody id="train-schedule-body"></tbody>
 					</table>
-				    
+
 				</div>
 			</div>
 
 			<!-- Form Field Area -->
 			<div class="card text-white bg-dark mb-3">
-			  	<div class="card-header form-header">
-				    Add Train to Schedule
+				<div class="card-header form-header">
+					Add Train to Schedule
 				</div>
 				<div class="card-body">
 					<form novalidate>
-					  <div class="form-row">
-					    <div class="form-group col-sm-6">
-					      <label for="train-number">Train #</label>
-					      <input type="number" class="form-control" id="train-number" min="1" max="999" placeholder="123" required/>
-					      <div class="invalid-feedback">
-					        Please provide a Train #.
-					      </div>
-					    </div>
-					    <div class="form-group col-sm-6">
-					      <label for="train-line">Line</label>
-					      <input type="text" class="form-control" id="train-line" maxlength=20 placeholder="Express" required/>
-					      <div class="invalid-feedback">
-					        Please provide a Train Line.
-					      </div>
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <label for="train-destination">Destination</label>
-					    <input type="text" class="form-control" id="train-destination" maxlength=12 placeholder="City or Station Name" required/>
-					    <div class="invalid-feedback">
-					        Please provide a Destination.
-					      </div>
-					  </div>
-					  <div class="form-row">
-					    <div class="form-group col-sm-4">
-					      <label for="train-departure">First Departure (24hr format)</label>
-					      <input type="number" class="form-control" id="train-departure" placeholder="0800" required/>
-					      <div class="invalid-feedback">
-					        Please provide a Train's First Departure Time.
-					      </div>
-					    </div>
-					    <div class="form-group col-sm-4">
-					      <label for="train-frequency">Frequency (minutes)</label>
-					      <input type="number" class="form-control" id="train-frequency" min="10" max="720" placeholder="30" required/>
-					      <div class="invalid-feedback">
-					        Please provide a Train Frequency.
-					      </div>
-					    </div>
-					    <div class="form-group col-sm-4">
-					      <label for="train-platform">Platform</label>
-					      <input type="text" class="form-control" id="train-platform" maxlength=2 placeholder="2a" required/>
-					      <div class="invalid-feedback">
-					        Please provide a Platform.
-					      </div>
-					    </div>
-					  </div>
-					  <button type="submit" class="btn button-add">Add Train</button>
-					</form>
-					
-				</div>
+						<div class="form-row">
+							<div class="form-group col-sm-6">
+								<label for="train-number">Train #</label>
+								<input type="number" class="form-control" id="train-number" min="1" max="999" placeholder="123" required />
+								<div class="invalid-feedback">
+									Please provide a Train #.
+								</div>
+							</div>
+							<div class="form-group col-sm-6">
+								<label for="train-line">Line</label>
+								<input type="text" class="form-control" id="train-line" maxlength=20 placeholder="Express" required />
+								<div class="invalid-feedback">
+									Please provide a Train Line.
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="train-destination">Destination</label>
+							<input type="text" class="form-control" id="train-destination" maxlength=20 placeholder="City or Station Name"
+							 required />
+							<div class="invalid-feedback">
+								Please provide a Destination.
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-sm-4">
+								<label for="train-departure">First Departure (24hr format)</label>
+								<input type="number" class="form-control" id="train-departure" placeholder="0800" required />
+								<div class="invalid-feedback">
+									Please provide a Train's First Departure Time.
+								</div>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="train-frequency">Frequency (minutes)</label>
+								<input type="number" class="form-control" id="train-frequency" min="10" max="720" placeholder="30" required />
+								<div class="invalid-feedback">
+									Please provide a Train Frequency.
+								</div>
+							</div>
+							<div class="form-group col-sm-4">
+								<label for="train-platform">Platform</label>
+								<input type="text" class="form-control" id="train-platform" maxlength=2 placeholder="2a" required />
+								<div class="invalid-feedback">
+									Please provide a Platform.
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="btn button-add">Add Train</button>
+					  </form>
+					  
+				  </div>
+  
+							
 
-	    	
-	    </div>
+
+			</div>
 
 
-	</div>
+		</div>
 
-	<!-- Link to momentjs CDN -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.19.1/moment.min.js"></script>
-	<!-- Firebase Link -->
-    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>	
-    <!-- Link to jQuery CDN -->
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-	<!-- Link to Bootstrap 4 JS CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
-	<!-- Links to JS Files -->
-	<script type="text/javascript" src="assets/javascript/model.js"></script>
-	<script type="text/javascript" src="assets/javascript/view.js"></script>
-	<script type="text/javascript" src="assets/javascript/controller.js"></script>
+		<!-- Link to momentjs CDN -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.js"></script> -->
+		<script src="https://momentjs.com/downloads/moment.js"></script>
+		<!-- Firebase Link -->
+		<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-database.js"></script>
+		<!-- Link to jQuery CDN -->
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		 crossorigin="anonymous"></script>
+		<!-- Link to Bootstrap 4 JS CDN -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+		 crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+		 crossorigin="anonymous"></script>
+		<!-- Links to JS Files -->
+		<script type="text/javascript" src="assets/javascript/model.js"></script>
+		<script type="text/javascript" src="assets/javascript/view.js"></script>
+		<script type="text/javascript" src="assets/javascript/controller.js"></script>
 
 </body>
