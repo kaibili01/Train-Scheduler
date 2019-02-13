@@ -35,9 +35,7 @@
     console.log('CURRENT TIME: ' + moment().format());
     
     
-     
-    
-    // model object with functions for pulling/pushing new data to the database
+        // model object with functions for pulling/pushing new data to the database
     
     
     var model = {
@@ -85,7 +83,7 @@
                 trainDeparture = childSnapshot.val().trainDeparture
                 trainFrequency = childSnapshot.val().trainFrequency
                 trainPlatform = childSnapshot.val().trainPlatform
-                // buttonDelete = buttonDelete.val().buttonDelete
+                buttonDelete = buttonDelete.val().buttonDelete
                 // trainKey = childSnapshot.key().trainKey
     
                 //console.log(trainNumber, trainLine, trainDestination, trainDeparture, trainFrequency, trainPlatform)

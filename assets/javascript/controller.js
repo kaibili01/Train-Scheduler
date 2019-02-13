@@ -46,19 +46,7 @@ let controller = {
         });
 
 
-        //Delete the input in any given row
-        // trainKey = $('#train-key').val().trim();
-        // $('body').on("click", ".button-delete", () => {
-        //     event.preventDefault();
-
-            
-
-
-            
-        // }
-
-
-    },
+ },
 
         
            
